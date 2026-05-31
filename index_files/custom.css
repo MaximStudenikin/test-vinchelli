@@ -1,0 +1,962 @@
+/* Настроки повторяющихся элементов MEV™*/
+:root {
+  --my-background-color: #f7f3f0; /* Фон блоков*/
+  --my-block-in-block-color: #fcf8f4; /* Фон блоков в блоке*/
+  --my-highlighter-color: #a0522d; /* Цвет полосы по бокам*/
+  --my-highlighter-strip-thickness: 8px; /* Толшина полосы по бокам*/
+  --my-strong-color: #333333; /* Цвет текста Strong*/
+  --my-text-color: #333; /* Цвет текста Strong*/
+  --my-li-text-color: #555; /* Цвет текста li*/
+  --my-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Фон тени */
+  --my-line-style: 2px solid #e5e5e5; /* Стиль линии бордюра*/
+  --my-border-radius: 8px; /* Радиус бордюра */
+  /* Получпрозрачных фон и надписи */
+  --my-bg-translucent-light: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Фон полпрозрачный светлый */
+  --my-bg-line-style: 2px solid #e5e5e5; /* Стиль линии бордюра блока с картинками*/
+  --my-text-bg-translucent-light: #4a2d2d; /* Цвет текста на светлом фоне */
+  --my-h-bg-translucent-light: #4a2d2d; /* Цвет заголовка на светлом фоне */
+  --my-text-bg-translucent-dark: #f1efef; /* Цвет текста на темном фоне */
+  --my-h-bg-translucent-dark: #f1efef; /* Цвет заголовка на темном фоне */
+  --my-bg-translucent-dark: rgba(
+    74,
+    73,
+    73,
+    0.8
+  ); /* Фон полпрозрачный темный */
+  /* По умолчанию (светлая тема) надписей и получпрозрачных фонов */
+  --my-current-bg: var(--my-bg-translucent-light);
+  --my-current-text-bg: var(--my-text-bg-translucent-light);
+  --my-current-heading-bg: var(--my-h-bg-translucent-light);
+
+  /* Таблицы */
+  --my-tamble-tr-bg-color: #4f1c1c; /* шапка фон */
+  --my-tamble-tr-text-color: white; /* шапка цвет текста */
+  --my-tamble-td-bg-odd-color: white; /* строка нечетна фон  */
+  --my-tamble-td-bg-even-color: #f3f3f3; /* строка четная фон */
+  --my-tamble-td-bg-hover-color: #f1f1f1; /* строка при наведении */
+  --my-tamble-td-text-color: #555555; /* строка цвет текста  */
+  --my-tamble-td-strong-text-color: #555555; /* строка цвет выделенного текста  */
+  --my-tamble-border-bottom: 1px solid #dddddd; /* строка цвет текста  */
+  --my-tamble-radius: 5px; /* строка цвет текста  */
+}
+
+.my-bgts-dk {
+  --my-current-bg: var(--my-bg-translucent-dark);
+  --my-current-text-bg: var(--my-text-bg-translucent-dark);
+  --my-current-heading-bg: var(--my-h-bg-translucent-dark);
+}
+
+/* Исправления стилей */
+.my-float-l {
+  overflow: hidden; /* чтобы текст не перескакивал */
+}
+
+.my-float-l img {
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+    height: auto;
+    border-radius: var(--my-border-radius);
+    box-shadow: var(--my-box-shadow);
+}
+/* Притвариться заголовком h2 */
+.type-h2 {
+  font-size: 45px !important;
+  padding: 30px 0 !important;
+  margin: 0 !important;
+  font-style: normal !important;
+  font-family: "Cormorant", serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+}
+
+.news-detail h2 {
+  font-size: 2em !important;
+  padding: 20px 0 !important;
+  margin: 0 !important;
+  font-style: normal !important;
+  font-family: "Cormorant", serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 768px) {
+  .type-h2 {
+    font-size: 20px !important;
+  }
+}
+
+
+.type-h3 {
+    font-family: 'CormorantItalic', serif;
+    font-weight: 300;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+
+/*  Блок с цветной полосой MEV™ */
+.my-button {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    white-space: nowrap;
+}
+.my-button a {
+    padding: 10px;
+    background-color: var(--accent-light-link);
+    border-radius: var(--my-border-radius);
+    color: var(--my-block-in-block-color)!important;
+    font-weight: 700;
+}
+/* Базовые стили для блока */
+[class^="my-hl-b"] {
+  border: var(--my-line-style);
+  padding: 36px;
+  margin: 20px 0;
+  position: relative;
+  background-color: var(--my-background-color);
+  border-radius: var(--my-border-radius);
+  box-shadow: var(--my-box-shadow);
+}
+
+
+.section-faq .faq-content .fw-bold.mb-2::before {
+  content: none !important;
+  display: none !important;
+}
+
+
+.faq {
+  border: var(--my-line-style);
+  padding-inline: 36px;
+  margin: 20px 0;
+  position: relative;
+  background-color: var(--my-background-color);
+  border-radius: var(--my-border-radius);
+  box-shadow: var(--my-box-shadow);
+}
+
+@media (max-width: 768px) {
+.faq {
+		padding: 16px;}
+
+
+
+.faq-content h3[itemprop=name] {
+		font-size: 15px!important;}
+ }
+
+
+.faq::before,
+.faq::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+}
+
+.faq::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--my-highlighter-strip-thickness);
+    background-color: var(--my-highlighter-color);
+    border-radius: var(--my-border-radius) var(--my-border-radius) 0 0;
+}
+
+
+.faq::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: var(--my-highlighter-strip-thickness);
+    background-color: var(--my-highlighter-color);
+    border-radius: 0 0 var(--my-border-radius) var(--my-border-radius);
+}
+
+.faq-content li {
+	  border-bottom: 1px solid #ccc; /* Цвет и стиль линии */
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.faq-content li:last-child {
+  border-bottom: none;
+}
+
+.faq h2 {
+text-align: center;
+    font-size: 1.5em!important;
+    font-weight: 700!important;
+    line-height: 2rem!important;
+    margin-bottom: 1rem!important;
+font-family: Lexend, sans-serif;
+}
+
+.faq h3 {
+
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+
+.faq-content ul {
+list-style: none !important;
+}
+
+@media (max-width: 768px) {
+.faq-content ul {
+padding: 0!important;
+margin: 0!important;
+	}}
+
+
+.faq-content h3[itemprop=name] {
+    align-items: flex-start;
+    display: flex
+;
+    font-family: Lexend, sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.faq-content div[itemprop=text] {
+    align-items: flex-start;
+    display: flex
+;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    padding-left: 0;
+}
+
+.faq-content h3[itemprop=name]:before {
+    align-items: center;
+    background-color: #f0f2f5;
+    border-radius: 4px;
+    color: #dc2626;
+    content: "?";
+    display: inline-flex
+;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-weight: 700;
+    height: 24px;
+    justify-content: center;
+    margin-right: 12px;
+    min-width: 24px;
+}
+
+.faq-content *[itemprop=text]:before {
+    color: #dc2626;
+    content: "💬";
+    display: inline-block;
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 1px;
+}
+
+/* Убираем тень для myns */
+[class*="my-hl-b"][class*="-mybib"] {
+  background-color: var(--my-block-in-block-color);
+}
+
+/* Стили для полос слева и справа */
+[class*="my-hl-b-lr"]::before,
+[class*="my-hl-b-lr"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+}
+
+[class*="my-hl-b-lr"]::before {
+  left: 0;
+  border-radius: var(--my-border-radius) 0 0 var(--my-border-radius);
+}
+
+[class*="my-hl-b-lr"]::after {
+  right: 0;
+  border-radius: 0 var(--my-border-radius) var(--my-border-radius) 0;
+}
+
+/* Стили для полос сверху и снизу */
+[class*="my-hl-b-tb"]::before,
+[class*="my-hl-b-tb"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+}
+
+/* Стили только для полосы сверху */
+[class*="my-hl-b-t"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+  border-radius: var(--my-border-radius) var(--my-border-radius) 0 0;
+}
+
+/* Стили только для полосы снизу */
+[class*="my-hl-b-b"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+  border-radius: 0 0 var(--my-border-radius) var(--my-border-radius);
+}
+
+[class*="my-hl-b-tb"]::before {
+  top: 0;
+  border-radius: var(--my-border-radius) var(--my-border-radius) 0 0;
+}
+
+[class*="my-hl-b-tb"]::after {
+  bottom: 0;
+  border-radius: 0 0 var(--my-border-radius) var(--my-border-radius);
+}
+
+/* Стили для только левой полосы */
+[class*="my-hl-b-l"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+  border-radius: var(--my-border-radius) 0 0 var(--my-border-radius);
+}
+
+/* Стили для только правой полосы */
+[class*="my-hl-b-r"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--my-highlighter-strip-thickness);
+  background-color: var(--my-highlighter-color);
+  border-radius: 0 var(--my-border-radius) var(--my-border-radius) 0;
+}
+
+/* Убираем тень для myns */
+[class*="my-hl-b"][class*="-myns"] {
+  box-shadow: none;
+}
+
+/* Убираем обводку для mynb */
+[class*="my-hl-b"][class*="-mynb"] {
+  border: none;
+}
+
+[class*="my-hl-b"][class*="-myr0"] {
+  border-radius: 0px;
+
+  &::before,
+  &::after {
+    border-radius: 0px;
+  }
+}
+
+/* Заголовки */
+[class^="my-hl-b"] h3 {
+  font-weight: 500 !important;
+  font-size: 2.25em;
+  text-transform: none !important;
+}
+
+/* Заголовки */
+[class^="my-hl-b"] h4 {
+  font-weight: 500 !important;
+  font-size: 1.7em;
+  text-transform: none !important;
+}
+
+@media (max-width: 768px) {
+  [class^="my-hl-b"] h3 {
+    font-size: 30px !important;
+  }
+  [class^="my-hl-b"] {
+    border: var(--my-line-style);
+    padding: 20px;
+  }
+}
+
+/* Блок перечисления UL с элементами MEV™*/
+
+[class^="my-ul-"] {
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+  padding-inline: 20px;
+  padding-bottom: 7px;
+}
+.my-ol {
+  margin: 20px 0 0 0;
+  padding: 0;
+  padding-inline: 20px;
+  padding-bottom: 7px;
+}
+
+.my-ol li::marker {
+  position: absolute;
+  left: 0;
+  color: var(--accent-dark);
+  font-weight: bold;
+  font-size: 18px;
+}
+.my-ol li {
+  position: relative;
+  margin-bottom: 10px;
+  color: var(--my-li-text-color);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  [class^="my-ul-"] {
+    margin-inline: 0rem !important;
+    padding-inline: 7px;
+  }
+}
+
+[class^="my-ul-"] li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: var(--my-li-text-color);
+  line-height: 1.6;
+  list-style: none;
+}
+
+[class^="my-ul-"] li strong {
+  color: var(--my-strong-color);
+}
+
+[class^="my-ul-"] li::before {
+  position: absolute;
+  left: 0;
+  color: var(--accent-dark);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.my-ul-romb li::before {
+  content: "◆";
+  top: -2px;
+}
+
+.my-ul-check li::before {
+  content: "✔";
+  top: -3px;
+}
+
+.my-ul-dot li::before {
+  content: "●";
+  top: -2px;
+}
+
+.my-ul-numer {
+  counter-reset: li;
+}
+.my-ul-numer li {
+  counter-increment: li;
+}
+.my-ul-numer li::before {
+  content: counter(li);
+  top: 0px;
+}
+
+/*  Блок без обрамления с картинкой MEV™ */
+
+/* Базовый стиль для родительского блока */
+[class^="my-img-b"] {
+  display: grid;
+  align-items: center;
+  gap: 1rem; /* Расстояние между текстом и картинкой */
+}
+
+/* Пропорции для соотношения 3:1, картинка справа */
+.my-img-b-r-3 {
+  grid-template-columns: 3fr 1fr;
+}
+
+/* Пропорции для соотношения 3:1, картинка слева */
+.my-img-b-l-3 {
+  grid-template-columns: 1fr 3fr;
+}
+
+.my-img-b-l-3 > div:first-child {
+  order: 2; /* Текст вторым */
+}
+
+.my-img-b-l-3 > div:last-child {
+  order: 1; /* Картинка первым */
+}
+
+/* Пропорции для соотношения 2:1, картинка справа */
+.my-img-b-r-2 {
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Пропорции для соотношения 2:1, картинка слева */
+.my-img-b-l-2 {
+  grid-template-columns: 1fr 2fr;
+}
+
+.my-img-b-l-2 > div:first-child {
+  order: 2; /* Текст вторым */
+}
+
+.my-img-b-l-2 > div:last-child {
+  order: 1; /* Картинка первым */
+}
+
+/* Пропорции для соотношения 1:1 */
+.my-img-b-r-1,
+.my-img-b-l-1 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.my-img-b-l-1 > div:first-child {
+  order: 2; /* Текст вторым */
+}
+
+.my-img-b-l-1 > div:last-child {
+  order: 1; /* Картинка первым */
+}
+
+/* Общие стили для текста (первый дочерний div) */
+[class^="my-img-b"] > div:first-child {
+  font-family: "OpenSansRegular", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--my-text-color);
+}
+
+[class^="my-img-b"] > div:first-child h2 {
+  font-weight: 500;
+  font-size: 1.8em;
+  margin-bottom: 1rem;
+}
+
+[class^="my-img-b"] > div:first-child p {
+  margin: 0;
+}
+
+/* Общие стили для картинки (второй дочерний div) */
+[class^="my-img-b"] > div:last-child {
+  text-align: center;
+}
+
+[class^="my-img-b"] > div:last-child img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--my-border-radius);
+  box-shadow: var(--my-box-shadow);
+}
+
+/* Адаптивность: картинка сверху на мобильных устройствах */
+@media (max-width: 768px) {
+  [class^="my-img-b"] {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+
+  [class^="my-img-b"] > div:last-child {
+    order: -1; /* Перемещаем картинку наверх */
+    width: 100% !important; /* Делаем картинку по ширине 100% */
+  }
+  [class^="my-img-b"] > div:first-child h2 {
+    line-height: 30px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+}
+
+/* Общие стили для текста */
+[class^="my-img-b"] > div:first-child {
+  font-family: "OpenSansRegular", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--my-text-color);
+}
+
+[class^="my-img-b"] > div:first-child h2 {
+  font-weight: 500;
+  font-size: 1.8em;
+  margin-bottom: 1rem;
+}
+
+[class^="my-img-b"] > div:first-child p {
+  margin: 0;
+}
+
+/* Блок со свойством размещения вложенных блоков div друг за другом на ширину экрана MEV™ */
+/* Общий стиль для контейнера */
+[class^="my-fw"] {
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос блоков */
+  gap: 1rem; /* Расстояние между блоками */
+  justify-content: space-between; /* Равномерное распределение блоков */
+  padding-top: 20px;
+}
+
+[class^="my-fw"] > div {
+  margin: 0;
+  padding: 10px 10px 0 20px;
+  margin: auto;
+}
+
+/* По умолчанию (например, 2 элемента в строке) */
+.my-fw-2 > div {
+  flex: 1 1 calc(50% - 1rem); /* Каждый блок занимает 50% ширины контейнера */
+}
+
+/* 3 элемента в строке */
+.my-fw-3 > div {
+  flex: 1 1 calc(33.333% - 1rem); /* Каждый блок занимает треть ширины */
+}
+
+/* 4 элемента в строке */
+.my-fw-4 > div {
+  flex: 1 1 calc(25% - 1rem); /* Каждый блок занимает четверть ширины */
+}
+
+/* 5 элементов в строке */
+.my-fw-5 > div {
+  flex: 1 1 calc(20% - 1rem); /* Каждый блок занимает пятую часть ширины */
+}
+
+/* 6 элементов в строке */
+.my-fw-6 > div {
+  flex: 1 1 calc(16.666% - 1rem); /* Каждый блок занимает шестую часть ширины */
+}
+
+@media (max-width: 768px) {
+  .my-fw > div {
+    flex: 1 1 100%; /* Каждый блок занимает всю ширину */
+  }
+}
+
+/*  Блок с вложенными блоками картинка + заголовок поврех картинки */
+/* Основной контейнер */
+[class*="my-img-gallery"] {
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос элементов на следующую строку */
+  gap: 20px; /* Расстояние между элементами */
+  justify-content: center; /* Центрируем блоки */
+  padding-bottom: 40px;
+}
+
+/* Каждый элемент галереи */
+[class*="my-img-gallery"] figure {
+  position: relative;
+  width: calc(33.333% - 20px); /* Три элемента в строке на больших экранах */
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--my-border-radius); /* Скруглённые углы */
+  box-shadow: var(--my-box-shadow); /* Лёгкая тень */
+  transition: transform 0.3s ease; /* Анимация при наведении */
+  border: var(--my-bg-line-style); /* Цвет бордюра */
+}
+
+[class*="my-img-gallery"] figure:hover {
+  transform: translateY(-10px); /* Поднимаем блок при наведении */
+}
+
+/* Картинка */
+[class*="my-img-gallery"] figure img {
+  width: 100%; /* Картинка растягивается на всю ширину блока */
+  height: auto; /* Сохраняем пропорции */
+  display: block;
+}
+
+/* Подпись */
+[class*="my-img-gallery"] figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  background: var(--my-current-bg); /* Полупрозрачный фон */
+  font-size: 1.2em;
+  font-family: "Open Sans", sans-serif;
+  color: var(--my-current-text-bg) !important; /* Цвет текста */
+  text-align: center;
+  text-transform: uppercase; /* Верхний регистр */
+  letter-spacing: 1px;
+  box-shadow: var(--my-box-shadow); /* Тень */
+}
+
+/* Заголовок в подписи */
+[class*="my-img-gallery"] figure figcaption h3 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--my-current-heading-bg) !important; /* Цвет заголовка */
+}
+
+/* Модификаторы */
+
+/* Убираем скругления углов (суффикс -myr0) */
+[class*="my-img-gallery"][class*="-myr0"] figure {
+  border-radius: 0 !important;
+}
+
+/* Убираем тени (суффикс -myns) */
+[class*="my-img-gallery"][class*="-myns"] figure {
+  box-shadow: none !important;
+}
+
+/* Убираем обводку (суффикс -mynb) */
+[class*="my-img-gallery"][class*="-mynb"] figure {
+  border: none !important;
+}
+
+/* Адаптивность: два элемента в строке на планшетах */
+@media (max-width: 768px) {
+  [class*="my-img-gallery"] figure {
+    width: calc(50% - 20px); /* Два элемента в строке */
+  }
+  [class*="my-img-gallery"] {
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Адаптивность: один элемент в строке на телефонах */
+@media (max-width: 480px) {
+  [class*="my-img-gallery"] figure {
+    width: 100%; /* Один элемент в строке */
+  }
+  [class*="my-img-gallery"] {
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Таблица MEV™*/
+
+/* Общие стили для таблицы */
+.my-table {
+  width: 100%;
+  border-collapse: separate; /* Разделяем границы, чтобы закругление сработало */
+  border-spacing: 0; /* Убираем зазоры между ячейками */
+  border-radius: var(--my-tamble-radius); /* Закругление углов */
+  overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  box-shadow: var(--my-box-shadow);
+}
+
+/* Закругление для углов */
+.my-table thead tr:first-child th:first-child {
+  border-top-left-radius: var(--my-tamble-radius);
+}
+
+.my-table thead tr:first-child th:last-child {
+  border-top-right-radius: var(--my-tamble-radius);
+}
+
+.my-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--my-tamble-radius);
+}
+
+.my-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--my-tamble-radius);
+}
+
+/* Заголовок таблицы */
+.my-table thead tr {
+  background-color: var(--my-tamble-tr-bg-color); /* Цвет заголовка */
+  color: var(--my-tamble-tr-text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Ячейки заголовка */
+.my-table th {
+  padding: 12px 15px;
+}
+
+/* Ячейки тела таблицы */
+.my-table td {
+  padding: 12px 15px;
+  border-bottom: var(--my-tamble-border-bottom);
+  color: var(--my-tamble-td-text-color);
+}
+.my-table td strong {
+  color: var(--my-tamble-td-strong-text-color);
+}
+
+/* Чередующиеся строки */
+.my-table tbody tr:nth-of-type(even) {
+  background-color: var(--my-tamble-td-bg-even-color);
+}
+.my-table tbody tr:nth-of-type(odd) {
+  background-color: var(--my-tamble-td-bg-odd-color);
+}
+
+/* Последняя строка без нижней границы */
+.my-table tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+.my-float-l {
+  overflow: hidden; /* чтобы текст не перескакивал */
+}
+
+.my-float-l img {
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+    height: auto;
+    border-radius: var(--my-border-radius);
+    box-shadow: var(--my-box-shadow);
+}
+
+.my-float-l .my-ul-romb {
+  padding-left: 1.2em;
+  margin-top: 0.5em;
+  overflow: hidden;
+}
+
+
+.my-float-r {
+  overflow: hidden;
+}
+
+.my-float-r img {
+  float: right;
+  width: 500px;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+    height: auto;
+    border-radius: var(--my-border-radius);
+    box-shadow: var(--my-box-shadow);
+}
+
+.my-float-r .my-ul-romb {
+  padding-left: 1.2em;
+  margin-top: 0.5em;
+  overflow: hidden;
+}
+
+
+/* Анимация при наведении  */
+.my-table tbody tr:hover {
+  background-color: var(--my-tamble-td-bg-hover-color);
+}
+
+/* Адаптивность на мобильных устройствах */
+@media (max-width: 768px) {
+  .my-table {
+    font-size: 0.9em;
+  }
+}
+
+
+        /* --- Стили для блока статьи портфолио --- */
+        .portfolio-project {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .portfolio-project h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+ 
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-details {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4f1c1c;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .project-details h4 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .project-details dt {
+            font-weight: bold;
+            color: #555;
+            float: left;
+            clear: left;
+            width: 120px; /* Ширина для термина */
+        }
+
+        .project-details dd {
+            margin-left: 130px; /* Отступ для описания */
+            margin-bottom: 8px;
+        }

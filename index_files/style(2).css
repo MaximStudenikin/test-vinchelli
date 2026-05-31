@@ -1,0 +1,67 @@
+.inner-order-list{
+	list-style: none;
+	padding-left: 0;	
+}
+
+.inner-order-list-item{
+	display: flex;	
+	align-items: center;
+}
+
+.inner-order-list-item-wrap{
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	gap: 15px;
+	padding:  25px 10px 25px 0;
+}
+
+.inner-order-list-item-number {
+	flex: 0 0 40px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	font-family: 'Cormorant', serif; font-display: swap;
+	font-size: 33px;
+	font-weight: 300;
+	line-height: 40px;
+	text-align: center;
+	color: var(--accent-light);
+	background-color: var(--bg-light2);
+	transition: transform .3s ease;
+	border: 1px solid var(--accent-light);
+	border-radius: 50%;
+}
+
+.inner-order-list-item-name {
+	font-family: 'BebasNeue', sans-serif; font-display: swap;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 26px;
+	text-align: left;
+	color: var(--bg-dark);
+	opacity: 0.66;
+	transition: opacity .3s ease;	
+}
+
+@media (max-width: 575px) {
+	.inner-order-list-item-wrap{
+		padding:  15px 10px 15px 0;
+	}	
+		.inner-order-list-item-number {
+			flex: 0 0 30px;
+			width: 30px;
+			height: 30px;
+			font-size: 25px;
+			line-height: 28px;			
+		}
+		.inner-order-list-item-name {
+			font-family: 'OpenSans', sans-serif; font-display: swap;
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: 400;
+			color: var(--black);
+			opacity: 1;	
+		}	
+}
+
